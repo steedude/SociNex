@@ -22,7 +22,7 @@ const INITIAL_STATE = {
 };
 const AuthContext = createContext<IcontextType>(INITIAL_STATE);
 
-const AuthPorvider = ({ children }: { children: React.ReactNode }) => {
+const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState<IUser>(INITIAL_USER);
   const [isLoading, setIsLoading] = useState(false);
@@ -70,5 +70,5 @@ const AuthPorvider = ({ children }: { children: React.ReactNode }) => {
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
-export default AuthPorvider;
+export default AuthProvider;
 export const useUserContext = () => useContext(AuthContext);
