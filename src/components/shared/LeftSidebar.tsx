@@ -2,7 +2,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { Button } from "../ui/button";
 import { useSignOutAccount } from "@/lib/react-query/queriesAndMutations";
 import { useUserContext } from "@/context/AuthContext";
-import { sidebarLinks } from "@/constant";
+import { sidebarLinks } from "@/constants";
 import { INavLink } from "@/types";
 
 const LeftSidebar = () => {
