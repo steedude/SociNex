@@ -1,5 +1,5 @@
 import {
-  // useQuery,
+  useQuery,
   useMutation,
   useQueryClient,
   // useInfiniteQuery,
@@ -9,6 +9,7 @@ import {
   createUserAccount,
   signInAccount,
   signOutAccount,
+  getRecentPosts,
 } from "../appwrite/api";
 import { QUERY_KEYS } from "@/lib/react-query/queryKeys.ts";
 import { INewPost, INewUser } from "@/types";
@@ -18,17 +19,20 @@ export const useCreateUserAccount = () => {
     mutationFn: (user: INewUser) => createUserAccount(user),
   });
 };
+
 export const useSignInAccount = () => {
   return useMutation({
     mutationFn: (user: { email: string; password: string }) =>
       signInAccount(user),
   });
 };
+
 export const useSignOutAccount = () => {
   return useMutation({
     mutationFn: signOutAccount,
   });
 };
+
 export const useCreatePost = () => {
   const queryClient = useQueryClient();
   return useMutation({
@@ -38,5 +42,12 @@ export const useCreatePost = () => {
         queryKey: [QUERY_KEYS.GET_RECENT_POSTS],
       });
     },
+  });
+};
+
+export const useGetRecentPosts = () => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.GET_RECENT_POSTS],
+    queryFn: getRecentPosts,
   });
 };
