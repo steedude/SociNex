@@ -54,10 +54,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const cookieFallback = localStorage.getItem("cookieFallback");
-    if (cookieFallback === "[]" || cookieFallback === null)
+    if (cookieFallback === "[]" || cookieFallback === null) {
       navigate("/sign-in");
-
-    checkAuthUser();
+    } else {
+      checkAuthUser();
+    }
   }, []);
 
   const value = {
