@@ -13,6 +13,7 @@ import {
   likePost,
   savePost,
   deleteSavedPost,
+  getCurrentUser,
 } from "../appwrite/api";
 import { QUERY_KEYS } from "@/lib/react-query/queryKeys.ts";
 import { INewPost, INewUser } from "@/types";
@@ -116,5 +117,12 @@ export const useDeleteSavedPost = () => {
         queryKey: [QUERY_KEYS.GET_CURRENT_USER],
       });
     },
+  });
+};
+
+export const useGetCurrentUser = () => {
+  return useQuery({
+    queryKey: [QUERY_KEYS.GET_CURRENT_USER],
+    queryFn: getCurrentUser,
   });
 };
