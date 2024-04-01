@@ -1,4 +1,4 @@
-# 社群網站 + appwrite 測試
+# SociNex
 
 ## 主要功能
 
